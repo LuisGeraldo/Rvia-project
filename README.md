@@ -4,9 +4,10 @@
  <p style="font-family: Arial;">
 Rvia es un sistema web que tiene como objetivo servir de intermediario entre un posible candidato a un puesto disponible en una determinada empresa y la parte de recursos humanos, en el sistema el candidato puede ver el estado de su solicitud, como también su información personal, académica y laboral. La parte de recursos humanos puede ver todos candidatos que han aplicado a un puesto de trabajo, como también pueden ponerse en contacto con cada uno de ellos y emplearlos si así lo desean. La parte administrativa maneja distintos aspectos, como la cantidad de puestos disponibles, los empleados, etc.
   </p>
-  
+
 <h2>Tecnologias usadas<h2>
   <h3 style="display: inline; font-family: Arial">Lenguaje de programacion:</h3><p style="display:inline;"> 
+  <p>
   <ul> 
     <li>Java</li>
   </ul>
@@ -66,21 +67,41 @@ Rvia es un sistema web que tiene como objetivo servir de intermediario entre un 
 
 <h1>Screenshots de la aplicacion</h1>
 
-<p>Pantalla inicial</p>
-<img style="display: block; margin: 0 auto; width: 90%;  height: 100px;" src="/screengit/img_01.jpg" alt="Screenshot aplication"/>
+<h3 style="display: inline; font-family: Arial">Pantalla inicial</h3>
+<img style="display: block; margin: 0 auto;" src="screengit/img_01.jpg" alt="Screenshot aplication"/>
 
 
-<p>Pantalla de inicio de sesion</p>
-<img style="display: block; margin: 0 auto; width: 90%;  height: 100px;" src="/screengit/img_02.png" alt="Screenshot aplication"/>
+<h3 style="display: inline; font-family: Arial">Pantalla de inicio de sesion</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_02.png" alt="Screenshot aplication"/>
 
 
+<h3 style="display: inline; font-family: Arial">Pantalla de inicio de sesion validaciones</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_03.jpg" alt="Screenshot aplication"/>
 
 
+<h3 style="display: inline; font-family: Arial">Pantalla de reclutacion, vista para postulantes</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_04.jpg" alt="Screenshot aplication"/>
+<img style="display: block; margin: 0 auto;" src="screengit/img_05.jpg" alt="Screenshot aplication"/>
+<img style="display: block; margin: 0 auto;" src="screengit/img_06.jpg" alt="Screenshot aplication"/>
+
+<h3 style="display: inline; font-family: Arial">Pantalla de reclutacion, vista para postulantes creado</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_07.jpg" alt="Screenshot aplication"/>
+
+<h3 style="display: inline; font-family: Arial">Vista del postulante cuando inicia sesion</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_08.png" alt="Screenshot aplication"/>
+
+<h3 style="display: inline; font-family: Arial">Vista del administrador cuando inicia sesion</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_09.png" alt="Screenshot aplication"/>
+
+<h3 style="display: inline; font-family: Arial">Lista de postulantes registrados</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_10.png" alt="Screenshot aplication"/>
+
+<h3 style="display: inline; font-family: Arial">Vista donde el administrador puede ver el detalle de los postulantes</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_11.png" alt="Screenshot aplication"/>
+
+<h3 style="display: inline; font-family: Arial">Proceso de contactar un postulante y convertirlo a empleado</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_12.png" alt="Screenshot aplication"/>
 
 
-
-
-
-
-
-
+<h3 style="display: inline; font-family: Arial">Lista de empleados</h3><br />
+<img style="display: block; margin: 0 auto;" src="screengit/img_13.png" alt="Screenshot aplication"/>
