@@ -38,7 +38,7 @@ Rvia es un sistema web que tiene como objetivo servir de intermediario entre un 
     </ul>
   </p>
   
-    <h3 style="display: inline; font-family: Arial">APIs:</h3>
+  <h3 style="display: inline; font-family: Arial">APIs:</h3>
   
   <p style="display: inline;"> 
     <ul>
@@ -67,7 +67,11 @@ Rvia es un sistema web que tiene como objetivo servir de intermediario entre un 
 <h1>Screenshots de la aplicacion</h1>
 
 <p>Pantalla inicial</p>
-<img style="display: block; margin: 0 auto; width: 90%;" src="/screengit/img_01.jpg" alt="Screenshot aplication"/>
+<img style="display: block; margin: 0 auto; width: 90%;  height: 100px;" src="/screengit/img_01.jpg" alt="Screenshot aplication"/>
+
+
+<p>Pantalla de inicio de sesion</p>
+<img style="display: block; margin: 0 auto; width: 90%;  height: 100px;" src="/screengit/img_02.png" alt="Screenshot aplication"/>
 
 
 
