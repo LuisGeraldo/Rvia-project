@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="resources/css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <h:outputStylesheet name="css/perfil.css"/>
+        <f:event type="preRenderView" listener="#{controlAccesoClass.onlyEmpleado()}"/>
+        <f:event type="preRenderView" listener="#{sessionEmpleado.infoUser()}"/>
+        <f:event type="preRenderView" listener="#{sessionEmpleado.infoEmpleado()}"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+  <div id="top" class="top">
+            <ui:insert name="top">
+                 <h:form>
+                     <h2><h:outputLabel class="name-text" value="#{sessionEmpleado.empleado.nombre}"/>  | Empleado</h2>
+                    
+                    <h:commandLink actionListener="#{controlAccesoClass.cerraSesion()}" value="#{bundle.CerrarSesion}"/>
+                </h:form>
+          
+            </ui:insert>
+        </div>
+        
+         <div>
+            <div id="left">
+                <section>
+                    <article>
+                        <img id="user-foto" src="../../resources/Imagenes/user.svg"/>
+                    </article>
+                     <article>
+                         <h2><h:outputText class="name-text-panel" value="#{sessionEmpleado.empleado.nombre}"/></h2>
+                    </article>
+                    
+                    <article>
+                       <hgroup class="option-text">
+                         <h:panelGrid class="panel-inf" columns="2">
+                             <h:outputText class="label-text" value="#{sessionEmpleado.empleado.apellido}"/>
+                                <h2>:Apellido</h2>
+                          
+                                <h:outputText class="label-text" value="#{sessionEmpleado.empleado.cedula}"/>
+                                <h2>:Cedula</h2>
+                         
+                                <h:outputText class="label-text" value="#{sessionEmpleado.empleado.fechaIngreso}"/>
+                                <h2>:Fecha Ingreso</h2>
+                                
+                                <hgroup class="option-text">
+                                     <h:outputText class="label-text" value="#{sessionEmpleado.empleado.email}"/>
+                                     <h2>:Email</h2>
+                                </hgroup> 
+                            </h:panelGrid>
+                        </hgroup>  
+                    </article> 
+                </section>       
+            </div>
+            
+            <div id="content" class="left_content">
+                <ui:insert name="content">Content</ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

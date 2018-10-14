@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+    
+    <ui:define name="title">
+       Home
+    </ui:define>
+   
+    <ui:define name="body">
+        
+         <section class="seccion-admin">
+                  <article class="text-bienvenido">
+                      <h2>Bienvenido a la parte administrativa de Rvia </h2>
+                  </article>
+                  
+                  <article class="info-sesion">
+                      <h:outputLabel class="name-text" value="#{sessionInfo.usuario.idNombre.idNombre}"/>
+                  </article>
+                  
+                  <article class="controles">
+                      <h:link id="postulante-view" value="Empleados"/>
+                      <h:link id="Empleado-view" value="Postulantes"/> 
+                  </article>
+             
+          </section>
+              
+        
+        <section id="cuadros" class="Contenido">
+          
+                     <article class="Cuadros">
+                         <a href="../../mantenimiento/postulante/List.xhtml">
+                            <img src="../../../../resources/Imagenes/user.png" alt="postulantes imagen"/>
+                            <h3>Postulantes</h3>
+
+                            <p>Aqui puede ver todas las personas que aplican a un puesto</p>
+                         </a>
+                    </article>
+            
+                    <article class="cuadros">
+                        <a href="../../mantenimiento/empleado/List.xhtml">
+                          <img src="../../../../resources/Imagenes/employee.png" alt="Lista de empleados imagen"/>
+                             <h3>Empleados</h3>
+    
+                            <p>Aqui puede ver los empleados registrados</p>
+                      </a>
+                    </article>
+                
+
+                    <article class="Cuadros">
+                        <a href="../../mantenimiento/puesto/List.xhtml">
+                            <img src="../../../../resources/Imagenes/setting.png" alt="Lista de puestos imagen"/>
+                            <h3>Puestos</h3>
+                       
+                             <p>Aqui puede ver los puestos que estan disponibles</p>
+                       </a>
+                    </article>  
+                </section>
+        </ui:define>
+</ui:composition>

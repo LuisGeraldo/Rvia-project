@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../../WEB-INF/templates/postulanteTemplate.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <section class="seccion-admin">
+                  <article class="text-bienvenido">
+                       <h2><h:outputLabel class="post-name" value="#{sessionInfo.postulante.nombre}"/> Bienvenido</h2>
+                  </article>
+                  
+                  <article class="info-sesion">
+                      <h:outputLabel class="name-text" value="#{sessionInfo.usuario.idNombre.idNombre}"/>
+                  </article>
+                  
+                  <article class="controles">
+                      <h:outputText id="postulante-view" value="Estado Solicitud: "/>
+                      <h:outputText id="Empleado-view" value="En proceso"/> 
+                  </article>
+          </section>
+        
+        <section id="cuadros-ex" class="Contenido">
+            
+                <article class="card">
+                         <hgroup id="Salario-puesto">
+                            <h3>Puesto y salario aspirado</h3>
+                         </hgroup>
+                            
+                            <hgroup>
+                                <p> Puesto:</p>
+                                <h:outputText value="#{sessionInfo.postulante.idPuesto.nombre}"/>
+                            </hgroup>
+                            
+                            <hgroup>
+                                <p> Salario:</p>
+                                <h:outputText value="#{sessionInfo.postulante.salarioDeseado}"/>
+                            </hgroup>
+                         
+                            <hgroup>
+                                <p> Recomendado por: </p>
+                                <h:outputText value="#{sessionInfo.postulante.recomendacion}"/>
+                            </hgroup>
+                        
+                </article>
+             
+                <article class="card">
+                         <hgroup id="Salario-puesto">
+                            <h3>Ultima capacitacion</h3>
+                         </hgroup>
+                            
+                            <hgroup>
+                            <p> Nivel Educacional:</p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.idNivel.nombre}"/>
+                            </hgroup>
+                            
+                             <hgroup>
+                                <p> Institucion:</p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.idInstitucion.nombre}"/>
+                            </hgroup>
+                      
+                            <hgroup>
+                                <p> Fecha Inicio: </p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.fechaInicio}"/>
+                            </hgroup>
+                      
+                            <hgroup>
+                                <p> Fecha Final: </p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.fechaFinal}"/>
+                            </hgroup>
+                      
+                             <hgroup>
+                                <p> Descripcion: </p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.descripcion}"/>
+                            </hgroup>
+                    </article>
+             
+                <article class="card">
+                         <hgroup id="Salario-puesto">
+                            <h3>Experiencia laboral</h3>
+                         </hgroup>
+                            
+                            <hgroup>
+                            <p> Empresa:</p>
+                            <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.idEmpresa.nombre}"/>
+                            </hgroup>
+                            
+                             <hgroup>
+                                <p> Puesto:</p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.idPuesto.nombre}"/>
+                            </hgroup>
+                      
+                            <hgroup>
+                                <p> Fecha Inicio: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.fechaInicio}"/>
+                            </hgroup>
+                      
+                            <hgroup>
+                                <p> Fecha Final: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.fechaFinal}"/>
+                            </hgroup>
+                      
+                             <hgroup>
+                                <p> Salario mensual: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.salario}"/>
+                            </hgroup>
+                            
+                            <hgroup>
+                                <p> Descripcion: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.decripcion}"/>
+                            </hgroup> 
+                    </article>    
+        </section>
+    </ui:define>
+</ui:composition>

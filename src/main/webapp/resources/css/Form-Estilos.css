@@ -1,0 +1,114 @@
+#LogoInicio{
+	vertical-align: text-bottom;
+	width: 40px;
+	margin-top: 0;
+	border-radius: 10px;
+}
+
+fieldset h1{
+	color: black;
+}
+
+
+#Formulario h1{
+	font-weight: bold;
+	color: white;
+	font-size: 35px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 110px;
+}
+
+form{
+    margin-top: 0;
+    background: white;
+    width: 320px;
+    margin: 20px auto;
+    height: auto;
+}
+
+
+fieldset{
+    margin-top: 0;
+    width: 390px;
+    margin: 0 auto;
+    border: none;
+    
+}
+
+fieldset input {
+    background: white;
+    border-radius: 5px;
+    border: 0.5px solid;
+    border-color: #357DEA;
+    margin: 0 auto;
+    display: block;
+    width: 290px;
+    text-align: center;
+    height: 35px;
+    margin: 10px auto;
+}
+
+.UneteA{
+	float: left;
+	font-size: 19px;
+	color: black;
+}
+
+
+.IniciarSesion{
+	border-radius: 5px;
+	font-weight: bold;
+	font-size: 16px;
+	color: white;
+	border: none;
+	background: #357DEA;
+}
+
+  form input:hover{
+        opacity: 0.7;
+    }
+    
+    .error{
+        color: red;
+    }
+    
+legend{
+    text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+form a{
+    display: block;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+    text-decoration: none;
+    color: black;
+}
+
+
+.cuader{
+    display: block;
+    height: 70px;
+}
+
+
+@media (min-width:1024px){
+    fieldset{
+        width: 300px;
+        
+    }
+    
+    form{
+        width: 400px;
+    }
+    
+    form input{
+        width: 350px;
+        margin: 15px auto;
+        height: 35px;
+        font-size: 19px;
+    }
+}

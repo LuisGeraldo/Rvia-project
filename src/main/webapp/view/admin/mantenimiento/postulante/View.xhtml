@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+          
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml"> 
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPostulanteTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            
+            <f:event type="preRenderView" listener="#{sessionInfo.infoPostulanteSession(postulanteController.selected.id)}"/>
+        
+            <section class="seccion-admin">
+                         <article class="text-bienvenido">
+                       <h2>
+                          <h:outputText value="#{postulanteController.selected.nombre}" title="#{bundle.ViewPostulanteTitle_nombre}"/> &nbsp;
+                          <h:outputText value="#{postulanteController.selected.apellido}" title="#{bundle.ViewPostulanteTitle_nombre}"/> 
+                       </h2>
+                        </article>
+                  
+                         <article class="info-sesion">
+                           <h:outputLabel class="name-text" value="Postulante"/>
+                        </article>
+                  
+                         <article class="controles">
+                     <h:form>
+                       <h:commandButton  class="btn-emplear" type="button" onclick="PF('complete-inf').show();" value="Emplear"/>
+                       <h:commandButton  class="btn-emplear btn-orange" type="button" onclick="PF('contactar-inf').show();" value="Contactar"/>
+                     </h:form>
+                  </article>  
+             </section>
+            
+          <h:form>    
+            <section id="cuadros-ex" class="Contenido">
+                  <article class="card">
+                         <hgroup id="Salario-puesto" class="img-card">
+                            <h3>Informacion basica</h3>
+                         </hgroup>
+                            
+                         <hgroup>
+                                <p> Cedula:</p>
+                                <h:outputText value="#{postulanteController.selected.cedula}" title="#{bundle.ViewPostulanteTitle_cedula}"/>
+                            </hgroup>
+                            
+                         <hgroup>
+                                <p> Correo:</p>
+                               <h:outputText value="#{postulanteController.selected.email}" title="#{bundle.ViewPostulanteTitle_email}"/>
+                            </hgroup>
+                            
+                         <hgroup>
+                                <p> Telefono: </p>
+                                 <h:outputText value="#{postulanteController.selected.telefono}" title="#{bundle.ViewPostulanteTitle_telefono}"/>
+                            </hgroup>
+                         
+                         <hgroup>
+                                <p> Direccion: </p>
+                                <h:outputText value="#{postulanteController.selected.direccion}" title="#{bundle.ViewPostulanteTitle_direccion}"/>
+                            </hgroup>                  
+                </article>          
+                
+                <article class="card">
+                         <hgroup id="Salario-puesto" class="img-card">
+                            <h3>Puesto y salario aspirado</h3>
+                         </hgroup>
+                            
+                         <hgroup>
+                                <p> Puesto:</p>
+                                <h:outputText value="#{postulanteController.selected.idPuesto.nombre}" title="#{bundle.ViewPostulanteTitle_idPuesto}"/>
+                            </hgroup>
+                            
+                         <hgroup>
+                                <p> Salario:</p>
+                               <h:outputText value="#{postulanteController.selected.salarioDeseado}" title="#{bundle.ViewPostulanteTitle_salarioDeseado}"/>
+                            </hgroup>
+                         
+                         <hgroup>
+                                <p> Recomendado por: </p>
+                               <h:outputText value="#{postulanteController.selected.recomendacion}" title="#{bundle.ViewPostulanteTitle_recomendacion}"/>
+                            </hgroup>       
+                 </article>
+                
+                 <article class="card">
+                         <hgroup id="Salario-puesto" class="img-card">
+                            <h3>Ultima capacitacion</h3>
+                         </hgroup>
+                            
+                         <hgroup>
+                            <p> Nivel Educacional:</p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.idNivel.nombre}"/>
+                            </hgroup>
+                            
+                         <hgroup>
+                                <p> Institucion:</p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.idInstitucion.nombre}"/>
+                            </hgroup>
+                      
+                         <hgroup>
+                                <p> Fecha Inicio: </p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.fechaInicio}"/>
+                            </hgroup>
+                      
+                         <hgroup>
+                                <p> Fecha Final: </p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.fechaFinal}"/>
+                            </hgroup>
+                      
+                         <hgroup>
+                                <p> Descripcion: </p>
+                                <h:outputText value="#{sessionInfo.postulanteCapacitacion.idCapacitacion.descripcion}"/>
+                            </hgroup>
+                    </article>
+                
+                    <article class="card">
+                         <hgroup id="Salario-puesto" class="img-card">
+                            <h3>Experiencia laboral</h3>
+                         </hgroup>
+                            
+                         <hgroup>
+                            <p> Empresa:</p>
+                            <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.idEmpresa.nombre}"/>
+                            </hgroup>
+                            
+                         <hgroup>
+                                <p> Puesto:</p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.idPuesto.nombre}"/>
+                            </hgroup>
+                      
+                         <hgroup>
+                                <p> Fecha Inicio: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.fechaInicio}"/>
+                            </hgroup>
+                      
+                         <hgroup>
+                                <p> Fecha Final: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.fechaFinal}"/>
+                            </hgroup>
+                      
+                         <hgroup>
+                                <p> Salario mensual: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.salario}"/>
+                            </hgroup>
+                            
+                         <hgroup>
+                                <p> Descripcion: </p>
+                                <h:outputText value="#{sessionInfo.experienciaLaboral.idExperiencia.decripcion}"/> 
+                         </hgroup>
+                    </article>    
+            </section>
+              
+              
+              <p:dialog header="Hacer empleado" widgetVar="complete-inf" resizable="false"  modal="true" showEffect="explode">
+                  
+                  <center><h2 class="title">Complete la informacion</h2></center>
+                  <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.CreateEmpleadoLabel_salario}" for="salario" />
+                    <h:inputText id="salario" value="#{canditaEmpleado.salario}" title="#{bundle.CreateEmpleadoTitle_salario}" requiredMessage="#{bundle.CreateEmpleadoRequiredMessage_salario}"/>
+                    <h:outputLabel value="#{bundle.CreateEmpleadoLabel_idDepartamento}" for="idDepartamento" />
+                  
+                    <h:selectOneMenu id="idDepartamento" value="#{canditaEmpleado.departamento}" title="#{bundle.CreateEmpleadoTitle_idDepartamento}" >
+                        <f:selectItems value="#{departamentoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{bundle.CreateEmpleadoLabel_idPuesto}" for="idPuesto" />
+                    <h:selectOneMenu id="idPuesto" value="#{canditaEmpleado.puesto}" title="#{bundle.CreateEmpleadoTitle_idPuesto}" >
+                        <f:selectItems value="#{puestoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel value="#{bundle.CreateEmpleadoLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" value="#{canditaEmpleado.estado}" title="#{bundle.CreateEmpleadoTitle_idEstado}" >
+                        <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    
+                    <h:outputLabel />
+                    <h:commandLink  class="btn-verde" action="#{canditaEmpleado.toConvert(postulanteController.selected.id)}" value="Emplear"/>
+                    
+                  </h:panelGrid>
+                  
+              </p:dialog>
+             
+              <p:dialog header="Contactar" widgetVar="contactar-inf" resizable="false"  modal="true" showEffect="explode" hideEffect="bounce">
+                  
+                  <center><h2 class="title">Contactar a </h2></center>
+                  <center><h:outputText class="title" value="#{postulanteController.selected.nombre}" title="#{bundle.ViewPostulanteTitle_email}"/></center>
+                  
+                  <h:messages errorStyle="color: red;" infoStyle="color: green;"/>
+                  
+                  <h:panelGrid class="crud" columns="2">
+                      
+                    <h:outputLabel value="Asunto: " for="asunto" />
+                    <h:inputText id="asunto" value="#{contactarController.asunto}" title="#{bundle.CreateEmpleadoTitle_salario}" />
+                    
+                    <h:outputLabel value="Mensaje: " for="Mensaje" />
+                    <h:inputText id="Mensaje" value="#{contactarController.cuerpoMenssage}" title="#{bundle.CreateEmpleadoTitle_salario}"/>
+               
+                    <h:outputLabel />
+                    <h:commandLink  class="btn-verde" action="#{contactarController.EnviarMensaje(postulanteController.selected.email)}" value="Enviar"/>
+                    
+                  </h:panelGrid>
+                  
+              </p:dialog>
+              
+                  
+              <section class="option">
+                <h:commandLink  class="btn-rojo" action="#{postulanteController.destroyAndView}" value="#{bundle.ViewPostulanteDestroyLink}"/>
+                
+                <h:commandLink class="btn-verde" action="#{postulanteController.prepareCreate}" value="#{bundle.ViewPostulanteCreateLink}" />
+            
+                <h:commandLink class="btn-azul" action="#{postulanteController.prepareList}" value="#{bundle.ViewPostulanteShowAllLink}"/>
+                <br/>
+                <br/><br/>
+                <h:link class="btn-gris" outcome="List" value="#{bundle.ViewPostulanteIndexLink}"/>
+                <br/>
+                </section>
+            </h:form>
+        </ui:define>
+        
+    </ui:composition>
+
+</html>

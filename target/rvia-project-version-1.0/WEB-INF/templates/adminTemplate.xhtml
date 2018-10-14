@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="resources/css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <f:event type="preRenderView" listener="#{controlAcceso.onlyRoleAdmin()}"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        
+        <div id="top" class="top">
+            <ui:insert name="top">Top</ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                    <br />                 
+                    <h:link outcome="mantenimiento/capacitacion/List" value="Capacitacion"/>
+                    <br />
+                    <h:link outcome="mantenimiento/competencia/List" value="Competencias"/>
+                    <br />
+                    <h:link outcome="mantenimiento/departamento/List" value="Departamentos"/>
+                    <br />
+                    <h:link outcome="mantenimiento/empleado/List" value="Empleados"/>
+                    <br />
+                    <h:link outcome="mantenimiento/empresa/List" value="Empresas"/>
+                    <br />
+                    <h:link outcome="mantenimiento/estado/List" value="Estados"/>
+                    <br />
+                    <h:link outcome="mantenimiento/experienciaLaboral/List" value="Experiencias Laborales"/>
+                    <br />
+                    <h:link outcome="mantenimiento/idioma/List" value="Idiomas"/>
+                    <br />
+                    <h:link outcome="mantenimiento/institucion/List" value="Instituciones"/>
+                    <br />
+                    <h:link outcome="mantenimiento/nivelEducacional/List" value="Niveles educacionales"/>
+                    <br />
+                    <h:link outcome="mantenimiento/nivelRiesgo/List" value="Niveles de riesgos"/>
+                    <br />
+                    <h:link outcome="mantenimiento/postulante/List" value="Postulantes"/>
+                    <br />
+                    <h:link outcome="mantenimiento/postulanteCapacitacion/List" value="Postulante Capacitacion"/>
+                    <br />
+                    <h:link outcome="mantenimiento/postulanteCompetencia/List" value="Postulante Competencia"/>
+                    <br />
+                    <h:link outcome="mantenimiento/postulanteExperiencia/List" value="Postulante Experiencia"/>
+                    <br />
+                    <h:link outcome="mantenimiento/postulanteIdioma/List" value="Postulante Idiomas"/>
+                    <br />
+                    <h:link outcome="mantenimiento/puesto/List" value="Puestos"/>
+
+<!--                    <h:link outcome="mantenimiento/tipoUsuario/List" value="Tipos de usuarios"/>-->
+                    <br />
+                    <h:link outcome="mantenimiento/usuario/List" value="Usuarios"/>
+                        
+                </ui:insert>
+            </div>
+            <div id="content" class="left_content">
+               <ui:insert name="body">Default Body</ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

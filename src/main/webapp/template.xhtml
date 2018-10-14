@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <h:outputStylesheet library="css" name="perfil.css"/>
+        <h:outputStylesheet library="css" name="cssLayout.css"/>
+        <h:outputStylesheet library="css" name="default.css"/>
+        <h:outputStylesheet library="css" name="primeStyle.css"/>
+        
+        <f:event type="preRenderView" listener="#{controlAccesoClass.onlyAdmin()}"/>
+        <f:event type="preRenderView" listener="#{sessionInfo.infoUser()}"/>
+      
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top">
+            <ui:insert name="top">
+                <h:form>
+                    <h2>Administrador | Rvia</h2>
+                    
+                    <h:commandLink actionListener="#{controlAccesoClass.cerraSesion()}" value="#{bundle.CerrarSesion}"/>
+                </h:form>
+            </ui:insert>
+        </div>
+        
+        <div>
+            <div id="left">
+                <ui:insert name="left">
+                               
+                    <article>
+                        <img id="user-foto" src="../../../../resources/Imagenes/user.svg"/>
+                    </article>
+                     <article>
+                         <h2><h:outputText class="name-text-panel" value="#{sessionInfo.usuario.email}"/></h2>
+                    </article>
+                    
+                    
+                    <h:link outcome="/view/admin/index/adminDash/indexAdmin" value="Home"/>  
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/postulante/List" value="Postulantes"/>  
+                    <br/>  
+                    <h:link outcome="/view/admin/mantenimiento/empleado/List"  value="Empleados"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/puesto/List" value="Puestos"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/usuario/List" value="Usuarios"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/capacitacion/List" value="Capacitacion"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/competencia/List" value="Competencias"/>    
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/departamento/List" value="Departamentos"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/empresa/List" value="Empresas"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/estado/List" value="Estados"/>         
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/idioma/List" value="Idiomas"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/institucion/List" value="Instituciones"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/nivelEducacional/List" value="Niveles educacionales"/>
+                    <br/>
+                    <h:link outcome="/view/admin/mantenimiento/nivelRiesgo/List" value="Niveles de riesgos"/>
+                    <br/>     
+                </ui:insert>
+            </div>
+        </div>
+        
+          <div id="content" class="left_content">
+               <ui:insert name="body">Default Body</ui:insert>
+          </div>
+        
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+        <h:outputScript library="primefaces" name="jquery/jquery-plugins.js" target="head" />
+        <script type="text/javascript" src="../../../../resources/js/validation.js"></script> 
+    </h:body>
+</html>

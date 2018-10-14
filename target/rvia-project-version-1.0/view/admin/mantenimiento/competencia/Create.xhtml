@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateCompetenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"><h:outputText value="#{bundle.CreateCompetenciaTitle}"/></h2>
+                <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.CreateCompetenciaLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" class="input-leter" value="#{competenciaController.selected.nombre}" title="#{bundle.CreateCompetenciaTitle_nombre}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.CreateCompetenciaLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" class="input-leter" value="#{competenciaController.selected.descripcion}" title="#{bundle.CreateCompetenciaTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateCompetenciaRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateCompetenciaLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" value="#{competenciaController.selected.idEstado}" title="#{bundle.CreateCompetenciaTitle_idEstado}" >
+                        <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                
+             <section class="option">
+                <br />
+                <h:commandLink class="btn-verde" action="#{competenciaController.create}" value="#{bundle.CreateCompetenciaSaveLink}" />
+                <br />
+                <br /> <br />
+                <h:commandLink class="btn-orange" action="#{competenciaController.prepareList}" value="#{bundle.CreateCompetenciaShowAllLink}" immediate="true"/>
+                <br />
+                <br /> <br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.CreateCompetenciaIndexLink}"/>
+                <br />
+                <br /> <br />
+             </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

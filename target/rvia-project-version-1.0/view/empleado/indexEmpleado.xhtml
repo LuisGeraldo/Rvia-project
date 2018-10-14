@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../../WEB-INF/templates/empleadoTemplate.xhtml">
+
+            <ui:define name="content">
+                 <section class="seccion-admin">
+                  <article class="text-bienvenido">
+                      <h2><h:outputLabel class="post-name" value="#{sessionEmpleado.empleado.nombre}"/> Bienvenido</h2>
+                  </article>
+                  
+                  <article class="info-sesion">
+                      <h:outputLabel class="name-text" value="#{sessionEmpleado.usuario.idNombre.idNombre}"/>
+                  </article>
+                  
+                  <article class="controles">
+                      
+                  </article>
+          </section>
+        
+        <section id="cuadros-ex" class="Contenido">
+             
+                <article class="card">
+                         <hgroup id="Salario-puesto">
+                            <h3>Informacion basica</h3>
+                         </hgroup>
+                            
+                            <hgroup>
+                            <p> Nombre:</p>
+                            <h:outputText value="#{sessionEmpleado.empleado.nombre}"/>
+                            </hgroup>
+                            
+                             <hgroup>
+                                <p> Apellido: </p>
+                                <h:outputText value="#{sessionEmpleado.empleado.apellido}"/>
+                            </hgroup>
+                      
+                            <hgroup>
+                                <p> Cedula: </p>
+                                <h:outputText value="#{sessionEmpleado.empleado.cedula}"/>
+                            </hgroup>
+                      
+                            <hgroup>
+                                <p> Email: </p>
+                                <h:outputText value="#{sessionEmpleado.empleado.email}"/>
+                            </hgroup>
+                    </article> 
+            
+                    <article class="card">
+                         <hgroup id="Salario-puesto">
+                            <h3>Informacion laboral</h3>
+                         </hgroup>
+                            
+                            <hgroup>
+                            <p> Puesto:</p>
+                            <h:outputText value="#{sessionEmpleado.empleado.idPuesto.nombre}"/>
+                            </hgroup>
+                            
+                             <hgroup>
+                                <p> Departamento: </p>
+                                <h:outputText value="#{sessionEmpleado.empleado.idDepartamento.nombre}"/>
+                            </hgroup> 
+                        
+                            <hgroup>
+                                <p> Departamento Descripcion: </p>
+                                <h:outputText value="#{sessionEmpleado.empleado.idDepartamento.descripcion}"/>
+                            </hgroup> 
+                    </article>
+            
+                     <article class="card">
+                         <hgroup id="Salario-puesto">
+                            <h3>Informacion salarial</h3>
+                         </hgroup>
+                            
+                            <hgroup>
+                            <p> Puesto:</p>
+                            <h:outputText value="#{sessionEmpleado.empleado.salario}"/>
+                            </hgroup>
+                            
+                             <hgroup>
+                                <p> Estado: </p>
+                                <h:outputText value="#{sessionEmpleado.empleado.idEstado.nombre}"/>
+                            </hgroup>   
+                    </article>
+                 </section>
+     </ui:define>
+        </ui:composition>
+
+    </body>
+</html>

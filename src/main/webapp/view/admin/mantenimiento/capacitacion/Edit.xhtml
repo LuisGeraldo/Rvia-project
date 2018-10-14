@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCapacitacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"><h:outputText value="#{bundle.EditCapacitacionTitle}"/></h2>
+                <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.EditCapacitacionLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{capacitacionController.selected.descripcion}" title="#{bundle.EditCapacitacionTitle_descripcion}" required="true" requiredMessage="#{bundle.EditCapacitacionRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.EditCapacitacionLabel_fechaInicio}" for="fechaInicio" />
+                    <h:inputText id="fechaInicio" value="#{capacitacionController.selected.fechaInicio}" title="#{bundle.EditCapacitacionTitle_fechaInicio}" required="true" requiredMessage="#{bundle.EditCapacitacionRequiredMessage_fechaInicio}"/>
+                    <h:outputLabel value="#{bundle.EditCapacitacionLabel_fechaFinal}" for="fechaFinal" />
+                    <h:inputText id="fechaFinal" value="#{capacitacionController.selected.fechaFinal}" title="#{bundle.EditCapacitacionTitle_fechaFinal}" required="true" requiredMessage="#{bundle.EditCapacitacionRequiredMessage_fechaFinal}"/>
+                    <h:outputLabel value="#{bundle.EditCapacitacionLabel_idInstitucion}" for="idInstitucion" />
+                    <h:selectOneMenu id="idInstitucion" value="#{capacitacionController.selected.idInstitucion}" title="#{bundle.EditCapacitacionTitle_idInstitucion}" >
+                        <f:selectItems value="#{institucionController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditCapacitacionLabel_idNivel}" for="idNivel" />
+                    <h:selectOneMenu id="idNivel" value="#{capacitacionController.selected.idNivel}" title="#{bundle.EditCapacitacionTitle_idNivel}" >
+                        <f:selectItems value="#{nivelEducacionalController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <section class="option">
+                <h:commandLink class="btn-verde" action="#{capacitacionController.update}" value="#{bundle.EditCapacitacionSaveLink}"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-orange" outcome="View" value="#{bundle.EditCapacitacionViewLink}"/>
+                 <br />
+                <br /><br />
+                <h:commandLink class="btn-azul" action="#{capacitacionController.prepareList}" value="#{bundle.EditCapacitacionShowAllLink}" immediate="true"/>
+                 <br />
+                <br /><br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.EditCapacitacionIndexLink}" />
+                </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

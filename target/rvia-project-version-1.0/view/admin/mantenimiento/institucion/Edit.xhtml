@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditInstitucionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"><h:outputText value="#{bundle.EditInstitucionTitle}"/></h2>
+                <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.EditInstitucionLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" class="input-leter" value="#{institucionController.selected.nombre}" title="#{bundle.EditInstitucionTitle_nombre}" required="true" requiredMessage="#{bundle.EditInstitucionRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditInstitucionLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" class="input-leter" value="#{institucionController.selected.descripcion}" title="#{bundle.EditInstitucionTitle_descripcion}" required="true" requiredMessage="#{bundle.EditInstitucionRequiredMessage_descripcion}"/>
+                </h:panelGrid>
+                
+            <section class="option">
+                <h:commandLink class="btn-azul" action="#{institucionController.update}" value="#{bundle.EditInstitucionSaveLink}"/>
+                <br />
+                <br />
+                <h:link class="btn-orange" outcome="View" value="#{bundle.EditInstitucionViewLink}"/>
+                <br /><br /><br />
+                <h:commandLink class="btn-verde" action="#{institucionController.prepareList}" value="#{bundle.EditInstitucionShowAllLink}" immediate="true"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.EditInstitucionIndexLink}" />
+            </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

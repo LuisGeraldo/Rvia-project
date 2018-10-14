@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePostulanteExperienciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePostulanteExperienciaLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{postulanteExperienciaController.selected.id}" title="#{bundle.CreatePostulanteExperienciaTitle_id}" required="true" requiredMessage="#{bundle.CreatePostulanteExperienciaRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.CreatePostulanteExperienciaLabel_idExperiencia}" for="idExperiencia" />
+                    <h:selectOneMenu id="idExperiencia" value="#{postulanteExperienciaController.selected.idExperiencia}" title="#{bundle.CreatePostulanteExperienciaTitle_idExperiencia}" >
+                        <f:selectItems value="#{experienciaLaboralController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreatePostulanteExperienciaLabel_idPostulante}" for="idPostulante" />
+                    <h:selectOneMenu id="idPostulante" value="#{postulanteExperienciaController.selected.idPostulante}" title="#{bundle.CreatePostulanteExperienciaTitle_idPostulante}" >
+                        <f:selectItems value="#{postulanteController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{postulanteExperienciaController.create}" value="#{bundle.CreatePostulanteExperienciaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{postulanteExperienciaController.prepareList}" value="#{bundle.CreatePostulanteExperienciaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePostulanteExperienciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

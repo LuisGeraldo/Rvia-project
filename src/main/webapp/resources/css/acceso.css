@@ -1,0 +1,9 @@
+body{
+    background-image: url(../Imagenes/image.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#IniciarSesion{
+    background: #357DEA;
+}

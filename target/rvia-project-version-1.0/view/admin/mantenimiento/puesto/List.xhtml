@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPuestoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h2 class="title-list"><h:outputText value="#{bundle.ListPuestoTitle}"/></h2>
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPuestoEmpty}" rendered="#{puestoController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{puestoController.items.rowCount > 0}">
+                    <h:outputText value="#{puestoController.pagination.pageFirstItem + 1}..#{puestoController.pagination.pageLastItem + 1}/#{puestoController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{puestoController.previous}" value="#{bundle.Previous} #{puestoController.pagination.pageSize}" rendered="#{puestoController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{puestoController.next}" value="#{bundle.Next} #{puestoController.pagination.pageSize}" rendered="#{puestoController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{puestoController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 0px">
+                      
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPuestoTitle_nombre}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPuestoTitle_salarioMinimo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.salarioMinimo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPuestoTitle_salarioMaximo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.salarioMaximo}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPuestoTitle_idNivelRiesgo}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idNivelRiesgo.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPuestoTitle_idEstado}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idEstado.nombre}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink class="btn-verde" action="#{puestoController.prepareView}" value="#{bundle.ListPuestoViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn-azul" action="#{puestoController.prepareEdit}" value="#{bundle.ListPuestoEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink class="btn-rojo" action="#{puestoController.destroy}" value="#{bundle.ListPuestoDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink class="btn-azul" action="#{puestoController.prepareCreate}" value="#{bundle.ListPuestoCreateLink}"/>
+                <br />
+                <br />
+                
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

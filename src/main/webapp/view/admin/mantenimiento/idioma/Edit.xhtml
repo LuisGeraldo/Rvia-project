@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditIdiomaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"> <h:outputText value="#{bundle.EditIdiomaTitle}"/></h2>
+                <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.EditIdiomaLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" class="input-leter" value="#{idiomaController.selected.nombre}" title="#{bundle.EditIdiomaTitle_nombre}" required="true" requiredMessage="#{bundle.EditIdiomaRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditIdiomaLabel_idEstado}" for="idEstado" />
+                    <h:selectOneMenu id="idEstado" value="#{idiomaController.selected.idEstado}" title="#{bundle.EditIdiomaTitle_idEstado}" >
+                        <f:selectItems value="#{estadoController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+            <section class="option">
+                <h:commandLink class="btn-azul" action="#{idiomaController.update}" value="#{bundle.EditIdiomaSaveLink}"/>
+                <br />
+                <br />    <br />
+                <h:link class="btn-orange" outcome="View" value="#{bundle.EditIdiomaViewLink}"/>
+                <br />    <br />     <br />
+                <h:commandLink class="btn-verde" action="#{idiomaController.prepareList}" value="#{bundle.EditIdiomaShowAllLink}" immediate="true"/>
+                <br />
+                <br />    <br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.EditIdiomaIndexLink}" />
+            </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNivelEducacionalTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"> <h:outputText value="#{bundle.EditNivelEducacionalTitle}"/></h2>
+                <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.EditNivelEducacionalLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" value="#{nivelEducacionalController.selected.nombre}" title="#{bundle.EditNivelEducacionalTitle_nombre}" required="true" requiredMessage="#{bundle.EditNivelEducacionalRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditNivelEducacionalLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{nivelEducacionalController.selected.descripcion}" title="#{bundle.EditNivelEducacionalTitle_descripcion}" required="true" requiredMessage="#{bundle.EditNivelEducacionalRequiredMessage_descripcion}"/>
+                </h:panelGrid>
+                
+            <section class="option">
+                <h:commandLink class="btn-azul" action="#{nivelEducacionalController.update}" value="#{bundle.EditNivelEducacionalSaveLink}"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-orange" outcome="View" value="#{bundle.EditNivelEducacionalViewLink}"/>
+                <br /><br /><br />
+                <h:commandLink class="btn-verde" action="#{nivelEducacionalController.prepareList}" value="#{bundle.EditNivelEducacionalShowAllLink}" immediate="true"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.EditNivelEducacionalIndexLink}" />
+            </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

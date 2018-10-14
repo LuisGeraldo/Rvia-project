@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewUsuarioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"><h:outputText value="#{bundle.ViewUsuarioTitle}"/></h2>
+                <h:panelGrid class="view-crud" columns="2">
+                    <h:outputText value="#{bundle.ViewUsuarioLabel_email}"/>
+                    <h:outputText value="#{usuarioController.selected.email}" title="#{bundle.ViewUsuarioTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewUsuarioLabel_pass}"/>
+                    <h:outputText value="------" title="#{bundle.ViewUsuarioTitle_pass}"/>
+                    <h:outputText value="#{bundle.ViewUsuarioLabel_idNombre}"/>
+                    <h:outputText value="#{usuarioController.selected.idNombre}" title="#{bundle.ViewUsuarioTitle_idNombre}"/>
+                </h:panelGrid>
+                <br />
+                
+                <section class="option">
+                    <h:commandLink class="btn-rojo" action="#{usuarioController.destroyAndView}" value="#{bundle.ViewUsuarioDestroyLink}"/>
+                    <br />
+                    <br /> <br />
+                    <h:link class="btn-orange" outcome="Edit" value="#{bundle.ViewUsuarioEditLink}"/>
+                     <br />
+                    <br /> <br />
+                    <h:commandLink class="btn-verde" action="#{usuarioController.prepareCreate}" value="#{bundle.ViewUsuarioCreateLink}" />
+                     <br />
+                    <br /> <br />
+                    <h:commandLink class="btn-azul" action="#{usuarioController.prepareList}" value="#{bundle.ViewUsuarioShowAllLink}"/>
+                    <br />
+                    <br />
+                    <h:link class="btn-gris" outcome="List" value="#{bundle.ViewUsuarioIndexLink}"/>
+                </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>

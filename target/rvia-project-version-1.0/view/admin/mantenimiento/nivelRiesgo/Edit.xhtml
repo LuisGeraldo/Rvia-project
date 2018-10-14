@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditNivelRiesgoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"><h:outputText value="#{bundle.EditNivelRiesgoTitle}"/></h2>
+                <h:panelGrid class="crud" columns="2">
+                    <h:outputLabel value="#{bundle.EditNivelRiesgoLabel_nombre}" for="nombre" />
+                    <h:inputText id="nombre" class="input-leter" value="#{nivelRiesgoController.selected.nombre}" title="#{bundle.EditNivelRiesgoTitle_nombre}" required="true" requiredMessage="#{bundle.EditNivelRiesgoRequiredMessage_nombre}"/>
+                    <h:outputLabel value="#{bundle.EditNivelRiesgoLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" class="input-leter" value="#{nivelRiesgoController.selected.descripcion}" title="#{bundle.EditNivelRiesgoTitle_descripcion}" required="true" requiredMessage="#{bundle.EditNivelRiesgoRequiredMessage_descripcion}"/>
+                </h:panelGrid>
+                
+             <section class="option">
+                <h:commandLink class="btn-azul" action="#{nivelRiesgoController.update}" value="#{bundle.EditNivelRiesgoSaveLink}"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-orange" outcome="View" value="#{bundle.EditNivelRiesgoViewLink}"/>
+                <br />
+                <br /><br />
+                <h:commandLink class="btn-verde" action="#{nivelRiesgoController.prepareList}" value="#{bundle.EditNivelRiesgoShowAllLink}" immediate="true"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.EditNivelRiesgoIndexLink}" />
+            </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

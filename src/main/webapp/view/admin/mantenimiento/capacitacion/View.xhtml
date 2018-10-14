@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewCapacitacionTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"> <h:outputText value="#{bundle.ViewCapacitacionTitle}"/></h2>
+                
+                <h:panelGrid class="view-crud" columns="2">
+                    <h:outputText value="#{bundle.ViewCapacitacionLabel_descripcion}"/>
+                    <h:outputText value="#{capacitacionController.selected.descripcion}" title="#{bundle.ViewCapacitacionTitle_descripcion}"/>
+                    <h:outputText value="#{bundle.ViewCapacitacionLabel_fechaInicio}"/>
+                    <h:outputText value="#{capacitacionController.selected.fechaInicio}" title="#{bundle.ViewCapacitacionTitle_fechaInicio}"/>
+                    <h:outputText value="#{bundle.ViewCapacitacionLabel_fechaFinal}"/>
+                    <h:outputText value="#{capacitacionController.selected.fechaFinal}" title="#{bundle.ViewCapacitacionTitle_fechaFinal}"/>
+                    <h:outputText value="#{bundle.ViewCapacitacionLabel_idInstitucion}"/>
+                    <h:outputText value="#{capacitacionController.selected.idInstitucion.nombre}" title="#{bundle.ViewCapacitacionTitle_idInstitucion}"/>
+                    <h:outputText value="#{bundle.ViewCapacitacionLabel_idNivel}"/>
+                    <h:outputText value="#{capacitacionController.selected.idNivel.nombre}" title="#{bundle.ViewCapacitacionTitle_idNivel}"/>
+                </h:panelGrid>
+                
+                <section class="option"> 
+                <h:commandLink class="btn-rojo" action="#{capacitacionController.destroyAndView}" value="#{bundle.ViewCapacitacionDestroyLink}"/>
+                
+                <h:link class="btn-azul" outcome="Edit" value="#{bundle.ViewCapacitacionEditLink}"/>
+                <br/><br/>
+                <br/>
+                <h:commandLink class="btn-verde" action="#{capacitacionController.prepareCreate}" value="#{bundle.ViewCapacitacionCreateLink}" />
+                
+                <h:commandLink class="btn-orange" action="#{capacitacionController.prepareList}" value="#{bundle.ViewCapacitacionShowAllLink}"/>
+                <br/> <br/>
+                <br/>
+                <h:link class="btn-gris" outcome="List" value="#{bundle.ViewCapacitacionIndexLink}"/>
+                </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

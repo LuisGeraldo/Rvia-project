@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListPostulanteCompetenciaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListPostulanteCompetenciaEmpty}" rendered="#{postulanteCompetenciaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{postulanteCompetenciaController.items.rowCount > 0}">
+                    <h:outputText value="#{postulanteCompetenciaController.pagination.pageFirstItem + 1}..#{postulanteCompetenciaController.pagination.pageLastItem + 1}/#{postulanteCompetenciaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{postulanteCompetenciaController.previous}" value="#{bundle.Previous} #{postulanteCompetenciaController.pagination.pageSize}" rendered="#{postulanteCompetenciaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{postulanteCompetenciaController.next}" value="#{bundle.Next} #{postulanteCompetenciaController.pagination.pageSize}" rendered="#{postulanteCompetenciaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{postulanteCompetenciaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPostulanteCompetenciaTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPostulanteCompetenciaTitle_idCompetencia}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idCompetencia}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListPostulanteCompetenciaTitle_idPostulante}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idPostulante}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{postulanteCompetenciaController.prepareView}" value="#{bundle.ListPostulanteCompetenciaViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{postulanteCompetenciaController.prepareEdit}" value="#{bundle.ListPostulanteCompetenciaEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{postulanteCompetenciaController.destroy}" value="#{bundle.ListPostulanteCompetenciaDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{postulanteCompetenciaController.prepareCreate}" value="#{bundle.ListPostulanteCompetenciaCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListPostulanteCompetenciaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pr="http://primefaces.org/ui"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Reclutamiento</title>
+        <link rel="stylesheet" href="../../resources/css/Estilos-base.css"/>
+        <link rel="stylesheet" href="../../resources/css/MenuQ.css"/>
+        <link rel="stylesheet" href="../../resources/css/Form-Estilos.css"/>
+        <link rel="stylesheet" href="../../resources/css/Formulario.css"/>
+        <h:outputStylesheet library="css" name="primeStyle.css"/>
+    </h:head>
+    
+    <h:body>
+         <header>
+            <div class="Contenedor">
+                <h:link outcome="/index"><h1><img src="../../resources/Imagenes/Logo.png" id="Logo"/> VIA</h1></h:link>
+                <label for="Check"><img src="../../resources/Imagenes/Menu B.png" id="Menu"/></label>
+                <input type="checkbox" id="Check"/>
+                
+                <nav>
+                    <h:link outcome="/index" value="Inicio"/>
+                    <h:link  outcome="/view/acceso/login" value="Iniciar sesion"/>
+                </nav>
+                
+            </div> 
+        </header>
+        
+        <main>
+            <section class="Contenedor" id="Formulario">
+                <center><h1>COMPLETA EL FORMULARIO</h1></center>
+                
+                <h:form class="form">
+                    <h2><img src="../../resources/Imagenes/Logo B.png" id="LogoInicio"/> VIA</h2>
+                         <fieldset id="DatosPersonales">
+                            <h:messages errorStyle="color: red;" infoStyle="color: green;"/>
+                                <h2>DATOS PERSONALES</h2>
+                    
+                                    <h:inputText value="#{candidatoController.postulante.nombre}" maxlength="30" id="Nombre" class="Nombre input-leter" p:placeholder="Nombre: Luis Rafael" required="true" requiredMessage="Nombre requerido" validatorMessage="Nombre incorrecto"></h:inputText>
+                                    <p id="ENombre" class="Error"></p>
+                    
+                                    <h:inputText value="#{candidatoController.postulante.apellido}" maxlength="30" id="Apellido" class="Apellido input-leter" p:placeholder="Apellido: Geraldo Contreras" required="true" requiredMessage="Apellido requerido" validatorMessage="Apellido incorrecto"></h:inputText>
+                                    <p id="EApellido" class="Error"></p>
+                    
+                                    <h:inputText value="#{candidatoController.postulante.cedula}"  maxlength="11" validator="#{componentValidator.validateCedula}" id="Cedula"  class="Cedula input-number-motherfucker" p:placeholder="Cedula: 000-3899409-0"  required="true" requiredMessage="Cedula  requerida">
+                                            <f:ajax event="blur" execute="@this" render="cedulaError"/> 
+                                    </h:inputText>
+                                    <h:message  id="sessionidMessagece" for="cedulaError" />
+                                    
+                                    <p id="ECedula" class="Error"></p>
+                   
+                                    <h:inputText value="#{candidatoController.postulante.telefono}"  maxlength="10" id="Telefono" class="Telefono input-number-motherfucker" p:placeholder="Telefono: 809-574-4870" required="true" requiredMessage="Telefono requerido" validatorMessage="Telefono incorrecto"></h:inputText>
+                                    <p id="ETelefono" class="Error"></p>
+                    
+                                    <h:inputText value="#{candidatoController.postulante.direccion}" id="Direccion" class="Direccion" maxlength="30" p:placeholder="Direccion: Residencial Italia" required="true" requiredMessage="Direccion requerida" validatorMessage="Direccion incorrecta"></h:inputText>
+                                    <p id="EDireccion" class="Error"></p>
+                    
+                                    <h:inputText value="#{candidatoController.email}" maxlength="40" id="Email" validator="#{componentValidator.validateEmail}" class="Email" p:placeholder="Email: tuemail@ejemplo.com" required="true" requiredMessage="Email requerido">
+                                            <f:ajax event="blur" execute="@this" render="EmailPost"/>
+                                    </h:inputText>     
+                                    <p id="EEmail" class="Error"></p>
+                    
+                                    <label for="CheckS" id="Siguiente" class="HoverS">Siguiente</label><input type="checkbox" id="CheckS"/>
+                                    <label for="CheckA" id="Atras" class="HoverA">Atras</label><input type="checkbox" id="CheckA"/>
+                        </fieldset>
+           
+                        <fieldset id="PuestoAspirado">
+                                <h2>PUESTO ASPIRADO</h2>
+                    
+                                    <p>
+                                    <label for="Puesto">Puesto:</label>
+                                    <h:selectOneMenu value="#{candidatoController.selectedPostulante.idPuesto}"> 
+                                            <f:selectItems  value="#{puestoController.itemsAvailableSelectOne}"/>
+                                    </h:selectOneMenu>
+                                    </p>
+                
+                                    <label for="Salario">Salario deseado:</label>
+                                    <h:inputText value="#{candidatoController.postulante.salarioDeseado}" maxlength="10" id='Salario' class="Salario input-number-motherfucker" p:placeholder="Salario: 90,000" required="true"></h:inputText>
+                                    <p id="ESalario" class="Error"></p>
+           
+                                    <label for="CheckS" id="SiguientePuesto" class="HoverS">Siguiente</label><input type="checkbox" id="CheckS"/>
+                                    <label for="CheckA" id="AtrasPuesto" class="HoverA">Atras</label><input type="checkbox" id="CheckA"/>             
+                       </fieldset>
+                
+                       <fieldset  id="Competencia">
+                                <h2>COMPETENCIAS</h2>
+                
+                                    <p class="cuader">
+                                    <label for="RRHH">Seleccion sus competencias:</label>
+                                    
+                                    <h:selectManyListbox class="combobox" id="RRHH" value="#{candidatoController.competencia}">
+                                            <f:selectItems value="#{competenciaController.itemsAvailableSelectManyFirstNone}"/>
+                                    </h:selectManyListbox>
+                  
+                                    </p>
+               
+                                    <p class="cuader">
+                                    <label for="Idiomas">Idiomas:</label>
+                                    <h:selectManyListbox  class="combobox" id="Idiomas" value="#{candidatoController.idiomas}"> 
+                                        <f:selectItems value="#{idiomaController.itemsAvailableSelectMany}" /> 
+                                    </h:selectManyListbox>
+                                    </p>
+                    
+                                    <label for="CheckS" id="SiguienteComp" class="HoverS">Siguiente</label> <input type="checkbox" id="CheckS"/>
+                                    <label for="CheckA" id="AtrasComp" class="HoverA">Atras</label><input type="checkbox" id="CheckA"/>
+                       </fieldset>
+                
+                                       
+                       <fieldset id="Capacitaciones">
+                                <h2>CAPACITACIONES</h2>
+                
+                                    <p>
+                                    <label for="Nivel">Nivel educacional:</label>
+                                    <h:selectOneMenu id="Nivel" value="#{candidatoController.capacitacion.idNivel}"> 
+                                        <f:selectItems value="#{nivelEducacionalController.itemsAvailableSelectOne}" /> 
+                                    </h:selectOneMenu>
+                                    </p>
+                     
+                                    <p id="FechaI">
+                                    <label for="FechaInicioCapacitacion">Fecha de inicio:</label>
+                                    <pr:calendar id="FechaInicioCapacitacion" locale="es"  value="#{candidatoController.capacitacion.fechaInicio}" widgetVar="fechaInicioCapacitacion" p:placeholder="20/08/2015" class="input-leter input-number-motherfucker" pattern="yyyy/mm/dd" required="true" />
+                                    </p>
+                
+                                    <p id="FechaF">
+                                    <label for="FechaFinalCapacitacion">Fecha de finalizacion:</label>
+                                    <pr:calendar  id="FechaFinalCapacitacion" value="#{candidatoController.capacitacion.fechaFinal}" widgetVar="fechaFinalCapacitacion" p:placeholder="20/08/2017" class="input-leter input-number-motherfucker" pattern="yyyy/mm/dd" required="true"/>
+                                    </p>
+                                
+                                    <p id="EFecha" class="Error"></p>
+                     
+                                    <p>
+                                    <label for="InstitucionCapacidad">Institucion:</label>
+                                    <h:selectOneMenu id="InstitucionCapacidad" value="#{candidatoController.capacitacion.idInstitucion}"> 
+                                       <f:selectItems value="#{institucionController.itemsAvailableSelectOne}" /> 
+                                    </h:selectOneMenu>
+                                    </p>
+                    
+                  
+                                    <h:inputTextarea id="descripcionCapacitacion"  value="#{candidatoController.capacitacion.descripcion}" required="true"  requiredMessage="Campo requerido">Añada una breve descripcion</h:inputTextarea>
+                    
+                    
+                                    <label for="CheckS" id="SiguienteCap" class="HoverS">Siguiente</label><input type="checkbox" id="CheckS"/>
+                                    <label for="CheckA" id="AtrasCap" class="HoverA">Atras</label><input type="checkbox" id="CheckA"/>     
+                       </fieldset>   
+                    
+                
+                       <fieldset id="ExperienciaLaboral">
+                                <h2>EXPERIENCIA LABORAL</h2>
+                   
+                                    <p>
+                                    <label for="Institucion">Institucion:</label>
+                                    <h:selectOneMenu id="Institucion" value="#{candidatoController.experienciaLaboral.idEmpresa}"> 
+                                        <f:selectItems value="#{empresaController.itemsAvailableSelectOne}" /> 
+                                    </h:selectOneMenu>
+                                    </p>
+                                
+                                    <p>
+                                    <label for="Puesto">Puesto:</label>
+                                    <h:selectOneMenu id="Puesto" value="#{candidatoController.experienciaLaboral.idPuesto}"> 
+                                        <f:selectItems value="#{puestoController.itemsAvailableSelectOne}"/>
+                                    </h:selectOneMenu>
+                                    </p>
+                
+                                    <p id="FechaI">
+                                    <label for="FechaInicio">Fecha de inicio:</label>
+                                    <pr:calendar id="FechaInicio" value="#{candidatoController.experienciaLaboral.fechaInicio}" widgetVar="fechaInicioLaboral" class="FechaInicioL input-leter input-number-motherfucker" p:placeholder="20/08/2015" title="#{bundle.CreateExperienciaLaboralTitle_fechaInicio}" required="true" pattern="yyyy/mm/dd" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_fechaInicio}" /> 
+                                    </p>
+                                    <p id="EFechaInicio" class="Error"></p>
+                       
+                                    <p id="FechaF">
+                                    <label for="FechaFinal">Fecha de finalizacion:</label>
+                                    <pr:calendar id="FechaFinal" value="#{candidatoController.experienciaLaboral.fechaFinal}" widgetVar="fechaFinalLaboral" class="FechaFinalL input-leter input-number-motherfucker" p:placeholder="20/08/2017"  title="#{bundle.CreateExperienciaLaboralTitle_fechaInicio}" required="true" pattern="yyyy/mm/dd" requiredMessage="#{bundle.CreateExperienciaLaboralRequiredMessage_fechaInicio}" />
+                                    </p>
+                     
+                                    <p id="EFechaFinal" class="Error"></p>
+ 
+                                    <p>
+                                    <label for="SalarioL">Salario:</label>
+                                    <h:inputText id="SalarioL" value="#{candidatoController.experienciaLaboral.salario}" class="SalarioL input-number-motherfucker" p:placeholder="Salario: 30,000" required="true"/><br/>  
+                                    <p id="ESalarioE" class="Error"></p>
+                                    </p>
+                    
+                   
+                                    <p id="ERecomendado" class="Error"></p>
+                                    <h:inputTextarea id="descripcion"  value="#{candidatoController.experienciaLaboral.decripcion}">Añada una breve descripcion</h:inputTextarea>
+                        
+                                    <label for="CheckS" id="SiguienteEx" class="HoverS">Siguiente</label><input type="checkbox" id="CheckS"/>
+                                    <label for="CheckA" id="AtrasEx" class="HoverA">Atras</label><input type="checkbox" id="CheckA"/>
+                        </fieldset>
+                           
+                        <fieldset id="Autenticacion">
+                                <h2>DATOS PRELIMINALES</h2>
+                
+                                    <p id="Recomendacion">
+                                    <label for="Recomendacion">Recomendado por:</label>
+                                    <h:inputText value="#{candidatoController.postulante.recomendacion}" id="Recomendacion" class="input-leter" p:placeholder="Luis Geraldo Contreras" required="true"/>
+                                    </p>
+                    
+                                    <p id="Contrasena">
+                                    <label for="Contrasena">Digite una contrasena:</label>
+                                    <h:inputSecret id="Contrasena" value="#{candidatoController.usuario.pass}" p:placeholder="Contrasena" required="true"/>
+                                    </p>
+                    
+                                    <label for="CheckA" id="AtrasAuto" class="HoverA">Atras</label><input type="checkbox" id="CheckA"/> 
+                                    <label><h:commandButton actionListener="#{candidatoController.crearCandidato()}" type="submit" class="Aplicar" value="Aplicar" id="Aplicar"/></label>
+                        </fieldset>  
+                    </h:form>
+            </section> 
+        </main>   
+        <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+        <h:outputScript library="primefaces" name="jquery/jquery-plugins.js" target="head"/>
+        <script type="text/javascript" src="../../resources/js/Reclutamiento.js"></script> 
+        <script type="text/javascript" src="../../resources/js/validation.js"></script>   
+    </h:body>
+</html>
+

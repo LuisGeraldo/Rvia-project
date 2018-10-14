@@ -1,0 +1,64 @@
+nav{
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: #357DEA;
+    transition: 0.5s;
+    transform: translateX(-100%);   
+}
+
+header a{
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+header a:hover{
+    border-radius: 10px;
+}
+
+#Check:checked ~ nav{
+    transform: translateX(0%);
+}
+
+
+@media (min-width: 1024px){
+    #Menu{
+        display: none;
+ }
+    
+    nav{
+    	background: none;
+        position: static;
+        transform: translateX(0%);
+        display: flex;
+        width: auto;
+        height: auto;
+        float: right;
+        
+    }
+    
+    header a{        
+       display: inline;
+       border: none;
+       padding: 10px; 
+       margin: 24px 10px 0 10px;
+    }
+    
+    header a:hover{
+       opacity: 0.5;    
+    }
+    
+    .Contenedor{
+        margin: auto;
+        width: 80%;
+    }
+}

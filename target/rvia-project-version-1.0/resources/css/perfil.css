@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Boogaloo');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+
+/* 
+    Created on : Oct 2, 2018, 4:01:24 AM
+    Author     : clear
+*/
+
+.contenedor{
+    margin: 0 auto;
+    width: 90%;
+}
+
+#perfil{
+    font-family: 'PT Sans Narrow', sans-serif;  
+}
+
+#name{
+    text-align: center;
+    font-size: 60px;
+    margin: 0;
+  
+}
+
+#apellido{
+    text-align: center;
+    margin: 0;
+    font-size: 30px;
+    
+}
+
+#cedula-email{
+    color: #3a4f54;
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#id-cedula{
+    margin-right: 20px; 
+}
+
+#inf-pesonal{
+    display: block;
+    margin: 0 auto;
+    content: inherit;
+    margin-top: 10px;
+    
+}
+
+.name-text{
+    float: left;
+    color: #007DD9;
+    font-size: 25px;
+    text-align: center;
+}
+
+.post-name{
+    font-size: 30px;
+    margin-left: 7px;
+}
+#user-foto{
+    display: block;
+    width: 150px;
+    
+    margin: 10px auto;
+    box-shadow: 4px 4px 4px #7FB0D4;
+    
+    -webkit-border-bottom-right-radius: 100px;
+    -webkit-border-bottom-left-radius: 100px;
+    -moz-border-radius-bottomright: 100px;
+    -moz-border-radius-bottomleft: 100px;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;  
+}
+
+
+.name-text-panel{
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    border-bottom: 1px solid #AFAFAF;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 5px;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+
+.option-text{
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 20px;
+    font-size: 20px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    box-shadow: 0px 2px 3px #AFAFAF;
+}
+
+.option-text h2{
+    display: inline;
+    font-size: 15px;
+    float: left;
+}
+
+.panel-inf tr:nth-child(odd) td {
+  background:none;
+
+}
+
+.panel-inf td{
+    width: 156px;
+    padding: 10px;
+    box-shadow: 0px 2px 0px #AFAFAF;
+}
+
+.label-text{
+    float: left;
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+.card{
+    margin-top: 70px;
+    width: 300px;
+    box-shadow: 1px 1px 8px #9B9B9B;
+    color: black;
+    height: 390px;
+}
+
+.card p{
+    display: inline; 
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.card hgroup{
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#cuadros-ex{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+
+#cuadros-ex h3{
+   margin: 0 auto;
+   text-align: center;
+}
+
+#Salario-puesto{
+    background-image: url(../Imagenes/fondo-dash.webp);
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-card{
+    background-image: url(../../resources/Imagenes/fondo-dash.webp) !important;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#Salario-puesto h3{
+    position: absolute;
+    color: white;
+    margin-top: 65px;
+    margin-left: 40px;
+    font-size: 20px;  
+}

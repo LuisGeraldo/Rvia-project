@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewPuestoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h2 class="title"><h:outputText value="#{bundle.ViewPuestoTitle}"/></h2>
+                <h:panelGrid class="view-crud" columns="2">
+                    <h:outputText value="#{bundle.ViewPuestoLabel_nombre}"/>
+                    <h:outputText value="#{puestoController.selected.nombre}" title="#{bundle.ViewPuestoTitle_nombre}"/>
+                    <h:outputText value="#{bundle.ViewPuestoLabel_salarioMinimo}"/>
+                    <h:outputText value="#{puestoController.selected.salarioMinimo}" title="#{bundle.ViewPuestoTitle_salarioMinimo}"/>
+                    <h:outputText value="#{bundle.ViewPuestoLabel_salarioMaximo}"/>
+                    <h:outputText value="#{puestoController.selected.salarioMaximo}" title="#{bundle.ViewPuestoTitle_salarioMaximo}"/>
+                    <h:outputText value="#{bundle.ViewPuestoLabel_idNivelRiesgo}"/>
+                    <h:outputText value="#{puestoController.selected.idNivelRiesgo.nombre}" title="#{bundle.ViewPuestoTitle_idNivelRiesgo}"/>
+                    <h:outputText value="#{bundle.ViewPuestoLabel_idEstado}"/>
+                    <h:outputText value="#{puestoController.selected.idEstado.nombre}" title="#{bundle.ViewPuestoTitle_idEstado}"/>
+                </h:panelGrid>
+                <br />
+                <section class="option">
+                <h:commandLink class="btn-rojo" action="#{puestoController.destroyAndView}" value="#{bundle.ViewPuestoDestroyLink}"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-azul" outcome="Edit" value="#{bundle.ViewPuestoEditLink}"/>
+                <br />
+                <br /><br />
+                <h:commandLink class="btn-verde" action="#{puestoController.prepareCreate}" value="#{bundle.ViewPuestoCreateLink}" />
+                <br />
+                <br /><br />
+                <h:commandLink class="btn-orange" action="#{puestoController.prepareList}" value="#{bundle.ViewPuestoShowAllLink}"/>
+                <br />
+                <br /><br />
+                <h:link class="btn-gris" outcome="List" value="#{bundle.ViewPuestoIndexLink}"/>
+                </section>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
