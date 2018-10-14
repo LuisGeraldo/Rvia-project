@@ -93,7 +93,7 @@ Rvia es un sistema web que tiene como objetivo servir de intermediario entre un 
 <img style="display: block; margin: 0 auto;" src="screengit/img_08.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Vista del administrador cuando inicia sesion</h3><br />
-<img style="display: block; margin: 0 auto;" src="screengit/img_09.png" alt="Screenshot aplication"/>
+<img style="display: block; margin: 0 auto;" src="screengit/screen25.png" alt="Screenshot aplication"/>
 
 <h3 style="display: inline; font-family: Arial">Lista de postulantes registrados</h3><br />
 <img style="display: block; margin: 0 auto;" src="screengit/img_10.png" alt="Screenshot aplication"/>
